@@ -8,7 +8,7 @@ defmodule Annex.Experimental.Layers.Activation do
 
   # NB: activation layers typically don't have to store any data.
 
-  @spec init(keyword) :: Math.tensor
+  @spec init(keyword) :: nil | Math.tensor
   def init(_options), do: nil
 
   @spec eval(nil, Math.tensor, keyword) :: Math.tensor
