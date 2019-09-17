@@ -3,14 +3,14 @@ defmodule AnnexTest.UsageTest do
   use Annex.Experimental.Math
 
   alias Annex.Experimental.Layer
-  alias Annex.Experimental.Layers.{FullyConnected, Activation}
+  alias Annex.Experimental.Layers.{Dense, Activation}
 
   test "basic xor training test" do
     # NB: this is still quite aspirational.
     flunk
-  #  xor_layers = Layer.new(FullyConnected, inputs: 2, outputs: 2, bias: true)
+  #  xor_layers = Layer.new(Dense, inputs: 2, outputs: 2, bias: true)
   #  |> Layer.new(Activation, function: :relu).()
-  #  |> Layer.new(FullyConnected, inputs: 2, outputs: 1).()
+  #  |> Layer.new(Dense, inputs: 2, outputs: 1).()
   #  |> Layer.new(Activation, function: :sigmoid).()
 #
   #  dataset = ~M[1.0 1.0 0.0 0.0
@@ -23,13 +23,13 @@ defmodule AnnexTest.UsageTest do
     alias Annex.Experimental.Math.ElixirTensor, as: Tensor
 
     first_layer = Layer.new(
-      FullyConnected,
+      Dense,
       inputs: 2, outputs: 2, bias: true,
       init: {~M[10.0 10.0
                 -10.0 -10.0], ~V[-15.0, 5.0]})
     second_layer = Layer.new(Activation, function: :relu)
     third_layer = Layer.new(
-      FullyConnected,
+      Dense,
       inputs: 2, outputs: 1, bias: true,
       init: {~M[10.0 10.0], ~V[-20.0]}
     )

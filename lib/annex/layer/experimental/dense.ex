@@ -1,4 +1,4 @@
-defmodule Annex.Experimental.Layers.FullyConnected do
+defmodule Annex.Experimental.Layers.Dense do
 
   use Annex.Experimental.Math
 
